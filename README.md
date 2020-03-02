@@ -1,1 +1,3 @@
 # kubernetes-the-hard-way
+
+Setting up the base ("cloud") infrastructure used in <https://github.com/kelseyhightower/kubernetes-the-hard-way> using Vagrant/VMWare Fusion instead of in the Google Cloud...
