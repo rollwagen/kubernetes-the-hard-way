@@ -1,0 +1,11 @@
+
+# MacOS specific
+.DS_Store
+
+# Generated certificate files
+*.pem
+*.csr
+
+# Config files (potentiall to the added to git later)
+*.json
+

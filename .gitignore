@@ -1,0 +1,10 @@
+
+# MacOS specific
+.DS_Store
+
+# Vagrant working dir
+.vagrant
+
+# Various dev notes and artefacts
+notes.txt
+
