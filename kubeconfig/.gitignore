@@ -2,5 +2,5 @@
 # MacOS specific
 .DS_Store
 
-*.kubconfig
+*.kubeconfig
 
