@@ -1,7 +1,7 @@
 
 {
   kubectl config set-cluster kubernetes-the-hard-way \
-    --certificate-authority=../ca.pem \
+    --certificate-authority=../certificates/ca.pem \
     --embed-certs=true \
     --server=https://127.0.0.1:6443 \
     --kubeconfig=kube-scheduler.kubeconfig
