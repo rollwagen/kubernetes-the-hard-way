@@ -18,12 +18,13 @@ Vagrant.configure("2") do |config|
 (0..2).each do |i|
 
   config.vm.define "controller-#{i}" do |config|
-    config.vm.box = "bento/ubuntu-18.04"
+    config.vm.box = "bento/ubuntu-21.10"
     #config.vm.box = "hashicorp/bionic64"
     config.vm.box_check_update = false
     config.vm.hostname = "controller-#{i}"
     config.vm.synced_folder ".", "/vagrant", disabled: true
     
+    # config.vm.network "private_network", auto_config: false
     config.vm.network "private_network", ip: "10.240.0.1#{i}"
     #config.vm.network "private_network", ip: "10.240.0.10", netmask: "24"
     
@@ -36,7 +37,7 @@ Vagrant.configure("2") do |config|
     config.vm.provider "vmware_desktop" do |vmware|
       vmware.vmx["displayname"] = "Controller-#{i}"
       vmware.memory = "4096"
-      vmware.cpus = "1"
+      vmware.cpus = "2"
       vmware.gui = false 
     end
 
@@ -52,11 +53,12 @@ end
 (0..2).each do |i|
 
   config.vm.define "worker-#{i}" do |config|
-    config.vm.box = "bento/ubuntu-18.04"
+    config.vm.box = "bento/ubuntu-21.10"
     config.vm.box_check_update = false
     config.vm.hostname = "worker-#{i}"
     config.vm.synced_folder ".", "/vagrant", disabled: true
     
+    # config.vm.network "private_network"
     config.vm.network "private_network", ip: "10.240.0.2#{i}"
     
     $apt_get_update = <<-SCRIPT
@@ -68,7 +70,7 @@ end
     config.vm.provider "vmware_desktop" do |vmware|
       vmware.vmx["displayname"] = "Worker-#{i}"
       vmware.memory = "4096"
-      vmware.cpus = "1"
+      vmware.cpus = "2"
       vmware.gui = false 
     end
 
